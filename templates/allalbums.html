@@ -1,0 +1,31 @@
+<html>
+<head>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+    <body>
+    <div class="content">
+        {% if albums%}
+            <h2>All the albums</h2>
+            <div class="albums">
+
+            {% for album in albums %}
+                <ul>
+                <li><a href='/album/{{ album[1] }}'>{{ album[0] }}</a> </li>
+                <li class="small">creator:{{ album[2] }}</li>
+                <li class="small">{{ album[3] }}</li>
+                </ul>
+            {% endfor %}
+            </div>
+            <div class="clear"></div>
+                <h2>You may also like:</h2>
+            {% for photo in picurl %}
+                <div class="photo">
+                 <p class="small" style="margin:0">{{photo[2]  }}</p><br>
+                    <a href='/photos/{{ photo[1] }}'><img src="{{ url_for('uploaded_file', filename = photo[0]) }}"/></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+<div class="clear"></div><a href='/backhome'>Home</a>
+    </div>
+    </body>
+</html>

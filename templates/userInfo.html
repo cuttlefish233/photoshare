@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<table style="width:100px;margin:0 auto;">
+      {% if user %}
+     <caption>Profile:</caption>
+   <tr>
+       <td>firstname:</td><td>{{ user[0]}}</td>
+   </tr>
+          <tr>
+          <td>lastname:</td><td>{{ user[1]}}</td>
+          </tr>
+          <tr>
+          <td>gender:</td><td>{{ user[2]}}</td>
+          </tr>
+<tr>
+<td>email:</td><td>{{ user[3]}}</td>
+</tr>
+          <tr>
+          <td>hometown:</td><td>{{ user[4]}}</td>
+          </tr>
+          <tr>
+          <td>birthday:</td><td>{{ user[5]}}</td>
+          </tr>
+   </ul>
+    {% endif %}
+</table>
+<a href='/backhome'>Home</a>
+</body>
+</html>

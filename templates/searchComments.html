@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search comments</title>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<form method="post" action="{{ url_for('search_comment') }}">
+     <label>Search comment:</label><br>
+     <textarea  name="content"></textarea>
+    <br>
+     <input type="submit" class="button"/>
+    <a href='/backhome'>Home</a>
+            </form>
+ {% if users %}
+     <div class="list">
+     <h2> User who has this comment</h2>
+      <ul>
+    {% for user in users %}
+        <li>[{{user[0]}}] with {{ user[1] }} comments<br>
+    {% endfor %}
+    </ul>
+ {% else %}
+     No users!
+  {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+body{
+    text-align:center;
+}
+.content{
+    margin:0 auto;
+    width: 80%;
+}
+.centerform{
+    text-align: left;
+    margin-left: 30%;
+}
+table,th,td {
+   border: 1px solid black;
+   border-collapse: collapse;
+}
+th,td {
+   padding: 5px;
+   text-align: left;
+}
+.functions{
+    width:30%;
+    float:left;
+    list-style: none;
+    border: 1px solid;
+    margin:10px;
+    padding:10px;
+}
+
+textarea{
+    width: 300px;
+    height: 100px;
+}
+a{
+    padding: 3px;
+    font-size: 14px;
+    color:black;
+}
+ul{
+    list-style: none;
+    padding: 0px;
+}
+a:hover,.button:hover{
+    background-color:gray;
+    color:white;
+}
+.button{
+    outline: none;
+    background:none;
+    border: none;
+    text-decoration: underline;
+    padding: 3px;
+    font-size: 14px;
+    color:black;
+}
+.list{
+    height:auto;
+    list-style: none;
+    border: 1px solid;
+    margin:10px;
+    padding:10px;
+}
+
+.list h2{
+    font-size: 14px;
+}
+.list li{
+     margin-bottom: 10px;
+    float: left;
+    border-right:1px solid black;
+    padding: 10px;
+}
+.albums ul{
+    width: 150px;
+    float: left;
+    border: 1px solid gray;
+    margin-right: 10px;
+    padding: 10px;
+}
+.photo {
+    width: 150px;
+    height:150px;
+    float: left;
+    list-style: none;
+    border: 1px solid gray;
+    margin-right: 10px;
+    padding: 10px;
+}
+.photo img{
+    max-width: 120px;
+    max-height: 120px;
+}
+.photo a:hover{
+    background-color: white;
+}
+.small{
+    font-size:12px;
+    color:gray;
+    float: left;
+}
+.clear{
+    clear:both;
+}
+.clear h2{
+    font-size: 14px;
+}
+.clear li{
+    float:left;
+    margin-right: 10%;
+}
+
+.sidelist{
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+    padding:10px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.users  li{
+    float: left;
+    margin-left:10px;
+}
+.comments{
+    margin:0 auto;
+    width: 70%;
+    text-align: left;
+    border-top: 1px solid;
+    padding: 10px;
+}

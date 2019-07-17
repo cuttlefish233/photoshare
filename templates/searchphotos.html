@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+ <body>
+    {% if message %}
+    <h4>{{message}}!</h4>
+    {% endif %}
+     <div class="content">
+   <form method="post" action="{{ url_for('search_photo') }}">
+       <label for="tag">Enter the tag you want to search:</label>
+       <input type="text" name="tag" placeholder="input tags separeted by ', '" style="width:200px;"/><br />
+       <input type="submit" class="button"/>
+   </form>
+         <a href='/backhome'>Home</a>
+</div>
+
+    </body>
+
+</html>

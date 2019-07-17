@@ -1,0 +1,41 @@
+<head>
+    <title>Upload a photo!</title>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+    <body>
+        <div class="title">
+            <h1>Upload a photo to Photoshare</h1>
+        </div>
+        <div class="clear">
+            Popular Tags:{% for tag in tags %} {{tag[0]}}&nbsp;
+            {% endfor %}
+        </div>
+            <br>
+    <div class="centerform">
+            <label for="inputfield">Please enter a new tag:</label>
+            <input type="text" id="inputfield" >
+            <button  onclick="copyText()" class="button">Add</button><br>
+            <label for="currenttags">Tags:</label>
+            <input type="text" size = "50" id="currenttags" disabled="true"><br>
+            <form method="post" enctype="multipart/form-data" action="/upload/{{ aid }} ">
+                <label for="photo">Select photo:</label>
+                <input type="file" name="photo" required='true'/><br />
+                <label for="caption">Please caption:</label>
+                <input type="text" name="caption" required='true' /><br />
+                <input type="hidden" id = "alltag" name="tags"  /><br>
+                <input type="submit" value="Upload" class="button" />
+<a href='/album'>My Albums</a>
+    <a href='/backhome'>Home</a>
+            </form>
+    </div>
+
+    </body>
+
+<script>
+function copyText()
+{
+
+document.getElementById("currenttags").value += "#"+document.getElementById("inputfield").value;
+document.getElementById("alltag").value += "#"+document.getElementById("inputfield").value;
+}
+</script>

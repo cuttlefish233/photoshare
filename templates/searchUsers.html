@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+ <body>
+      <div class="content">
+   <form method="post" action="{{ url_for('searchu') }}">
+       <label >Enter the e-mail address of the user you want to see his/her information:</label>
+       <input type="email" name="email1" /><br />
+       <label >Enter the email address of the User you want to add as a friend:</label>
+       <input type="email" name="email" /><br />
+       <label >Enter the email address of the friend you want to delete:</label>
+       <input type="email" name="deleteemail" /><br />
+       <input type="submit" class="button"/>
+       <a href='/backhome'>Home</a>
+   </form>
+
+         {% if userlist %}
+             <div class="list">
+            <h2>Here are all users</h2>
+            <ul>
+            {% for user in userlist %}
+                <li>{{user[0]}}</li>
+            {% endfor %}
+            </ul><div class="clear"></div>
+             </div>
+        {% endif %}
+      <div class="clear"></div>
+          {% if recolist %}
+              <div class="list">
+            <h2>Recommend users</h2>
+            <ul>
+            {% for user in recolist %}
+                <li>{{user[0]}}</li>
+            {% endfor %}
+            </ul><div class="clear"></div>
+              </div>
+        {% endif %}
+          {% if friends %}
+              <div class="list">
+     <h2> Friend list</h2>
+      <ul>
+    {% for friend in friends %}
+        <li>{{friend[0]}}<br>
+    {% endfor %}
+    </ul><div class="clear"></div>
+              </div>
+  {% endif %}
+         <div class="list">
+             <h2>Top 10 user</h2>
+            <ul>
+                {% for user in topusers %}
+                    <li>{{user[0]}}</li>
+                {% endfor %}
+            </ul>
+         <div class="clear"></div>
+         </div>
+</div>
+    </body>
+</html>

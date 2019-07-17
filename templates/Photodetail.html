@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="content">
+<img src="{{ url_for('uploaded_file', filename = info[1]) }}"/>
+<div class="sidelist">
+<ul style="margin: 0;">
+    <li>Owner:{{ owneremail }} </li>
+    <li>Caption:{{ info[0] }} </li>
+    <li>Tags:{% for tag in tags %}
+            {{tag[0]}}&nbsp;
+        {% endfor %}</li>
+    <li>Likes:{{ likecount }}</li>
+
+    <ul class="users">
+       <li>&nbsp;&nbsp;Users who likes: </li>
+           {% for user in likeusers %}
+                     <li>&nbsp;{{user[0]}}</li>
+                {% endfor %}
+    <div class="clear"></div>
+    </ul>
+ {% if  owner ==False %}
+         <li><input type="button" class="button" onclick="like()" value="Like!" /></li>
+     {% else %}
+         <li><input type="button" class="button" onclick="show_confirm()" value="Delete photo" /></li>
+    {% endif %}
+</ul>
+</div>
+<div class="clear"></div>
+            <h2>Comments:</h2>
+            {% for c in clist %}
+                <div class="comments">
+                <p>{{ c[0] }}</p>
+
+                    <ul class="clear">
+                        {% if c[1] =="Visitor" %}
+                        <li class="small" >from anonymous visitor </li>
+                {% else %}
+                        <li class="small" >from user:{{ c[1] }} </li>
+                {% endif %}
+                        <li class="small" >time:{{c[2]  }}</li>
+                     {% if c[3]>0 %}
+                        <li><input type="button" class="button" onclick="delete_comment({{ c[3] }})" value="Delete"/></li>
+                    {% endif %}
+                    <div class="clear"></div>
+                    </ul>
+            </div>
+            {% endfor %}
+          {% if  owner ==False %}
+ <form method="post" action="{{ url_for('add_comment') }}">
+     <label>Add comment:</label><br>
+     <textarea  name="content" rows="3" cols="20"></textarea>
+     <input type="hidden" name="pid" value="{{ pid }}" /><br>
+     <input type="submit" class="button"/>
+            </form>
+          {%  endif %}
+          <ul class="clear">
+              <li><a href='/album/{{ aid }}'>To Album</a></li>
+              <li><a href='/allalbums'>View all albums</a></li>
+              <li><a href='/backhome'>Home</a></li>
+          </ul>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function show_confirm()
+{
+var r=confirm("Are you sure to delete this photo?");
+if (r==true)
+  {
+  window.location.href='/deletephoto/{{ pid }}';
+  }
+else
+  {
+  alert("You pressed Cancel!");
+  }
+}
+function like(){
+     window.location.href='/like/{{ pid }}';
+}
+function delete_comment(cid){
+    window.location.href='/deletecomment/'+cid;
+}
+</script>

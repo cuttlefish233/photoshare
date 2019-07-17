@@ -1,0 +1,21 @@
+<head>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<html>
+    <body>
+    <div class="content">
+            <h2>Photos with these tags</h2>
+            {% for photo in photos %}
+               <div class="photo">
+                    <a href='/photos/{{ photo[1] }}'><img src="{{ url_for('uploaded_file', filename = photo[0]) }}"/></a>
+                </div>
+            {% endfor %}
+    <ul>
+
+        <li><a href='/album'>Albums</a> </li>
+        <li><a href='/profile'>Profile</a></li>
+        <li><a href='/backhome'>Home</a></li>
+    </ul>
+    </div>
+    </body>
+</html>

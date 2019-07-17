@@ -1,0 +1,29 @@
+<html>
+<head>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+    <body>
+    <div class="content">
+        {% if names is not none %}
+            <div class="albums">
+                <h2>Here's your albums</h2>
+
+                {% for name in names %}
+                    <ul>
+                <li><a href='/album/{{ name[1] }}'>{{ name[0] }}</a> </li>
+                        <li class="small">Date:{{ name[2] }}</li>
+                    </ul>
+             {% endfor %}
+
+            </div>
+             <div class="clear">
+             <ul>
+                <li><a href='/createalbum'>Create New Albums</a> </li>
+                <li><a href='/profile'>Profile</a></li>
+                 <li><a href='/backhome'>Home</a></li>
+             </ul>
+             </div>
+        {% endif %}
+    </div>
+    </body>
+</html>

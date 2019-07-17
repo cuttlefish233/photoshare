@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+    <body>
+<div class="content">
+        {% if photopath %}
+            {% for photo in photopath %}
+                <div class="photo">
+                <p class="small" style="margin:0">{{photo[2]  }}</p><br>
+                    <a href='/photos/{{ photo[1] }}'><img src="{{ url_for('uploaded_file', filename = photo[0]) }}"/></a>
+                </div>
+
+
+            {% endfor %}
+        {% endif %}
+    <ul class="clear">
+        {% if  owner  == True  %}
+        <li><input type="button" class="button" onclick="show_confirm()" value="Delete this album" /></li>
+        <li><a href='/upload/{{ aid }}'>Upload photos</a> </li>
+        <li><a href='/alrename/{{ aid }}'>Rename Album</a> </li>
+        {% endif %}
+    <li><a href='/allalbums'>View all albums</a></li>
+    <li><a href='/album'>My Albums</a> </li>
+    <li><a href='/backhome'>Home</a></li>
+    </ul>
+</div>
+    </body>
+</html>
+<script type="text/javascript">
+function show_confirm()
+{
+var r=confirm("Are you sure to delete this album?");
+if (r==true)
+  {
+  window.location.href='/deletealbum/{{ aid }}';
+  }
+else
+  {
+  alert("You pressed Cancel!");
+  }
+}
+</script>
